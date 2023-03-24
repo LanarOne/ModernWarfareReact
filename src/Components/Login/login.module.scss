@@ -1,0 +1,32 @@
+.loginForm {
+  //color: var(--header-color);
+  padding: 2rem 0;
+  background-image: url('../../img/militaryBox.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed var(--header-color);
+    width: 60%;
+    margin: 1rem auto;
+    & label {
+      padding: 1rem;
+    }
+    & input {
+      margin: 1rem;
+    }
+  }
+}
+.redirect {
+  color: var(--header-color);
+  & a {
+    border: 1px solid transparent;
+    &:hover {
+      border-bottom: 1px solid var(--header-color);
+    }
+  }
+  padding: 1rem;
+}

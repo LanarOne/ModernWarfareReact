@@ -1,0 +1,73 @@
+.spaceStation {
+  display: flex;
+  background-color: var(--header-color);
+  & .window {
+    width: 50%;
+    background-image: url("../../img/spaceBattle.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: var(--header-color);
+  }
+  .article {
+    width: 50%;
+    & p {
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+}
+h2 {
+  color: var(--header-bgc);
+  & a:hover {
+    border-bottom: white 1px solid;
+  }
+}
+
+.submarineStation {
+  background-color: var(--header-color);
+  display: flex;
+  & .window {
+    width: 50%;
+    background-image: url("../../img/substation.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+  }
+  & .article {
+    width: 50%;
+    & p {
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+.latest,
+.classics {
+  background-color: var(--header-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  & img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  & .spoiler {
+    color: var(--orange);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  & .blocArticle {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    & article {
+      max-width: 40%;
+      margin: 1rem;
+    }
+  }
+}

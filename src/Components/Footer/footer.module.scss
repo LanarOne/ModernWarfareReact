@@ -1,0 +1,23 @@
+footer {
+  & .container {
+    display: flex;
+    background-color: var(--header-color);
+    justify-content: space-between;
+    align-items: center;
+    & img {
+      max-width: 20%;
+      margin: 1rem;
+    }
+    & ul {
+      & li {
+        margin: 2rem;
+        & a {
+          padding: 1rem 2rem;
+          color: var(--header-bgc);
+          border: 1px solid transparent;
+          transition: all .5s;
+        }
+      }
+    }
+  }
+}

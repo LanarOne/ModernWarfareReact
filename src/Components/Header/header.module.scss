@@ -1,0 +1,33 @@
+@use "src/Styles/variables.scss";
+
+.container {
+  background-color: var(--header-bgc);
+  & .bloclogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      width: 10rem;
+    }
+  }
+  & ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    & a {
+      padding: 1rem 2rem;
+    }
+
+    & a:hover {
+      background-color: var(--header-color);
+      border: 1px solid var(--body-color);
+      color: var(--header-bgc);
+    }
+    & .custom {
+      padding: 1rem 2rem;
+      background-color: var(--header-color);
+      border: 1px solid var(--body-color);
+      color: var(--orange);
+    }
+  }
+}
