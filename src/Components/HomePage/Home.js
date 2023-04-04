@@ -16,10 +16,10 @@ import fa102_6 from "../../img/FA102_6.png";
 import fv24_2 from "../../img/FV24_2.png";
 const Home = () => {
   return (
-    <div>
+    <div className={`${mc.container}`}>
       <Header />
       <main>
-        <section className={`${mc.container}`}>
+        <section>
           <article className={`${mc.spaceStation}`}>
             <div className={`${mc.window}`}></div>
             <div className={`${mc.article}`}>

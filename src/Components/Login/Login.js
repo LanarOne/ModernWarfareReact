@@ -29,6 +29,12 @@ const Login = () => {
         const token = data.token;
         localStorage.setItem("token", token);
         window.location.href = "/";
+      } else if (response.status === 403) {
+        return alert(`All fields must be filled`);
+      } else if (response.status === 401) {
+        return alert(`invalid password or email`);
+      } else {
+        window.location.href = "/signup";
       }
     } catch (err) {
       return Error(err.message);

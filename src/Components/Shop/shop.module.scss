@@ -1,0 +1,12 @@
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: var(--header-color);
+  display: flex;
+  & aside {
+    width: 20%;
+  }
+  & .products {
+    width: 80%;
+  }
+}

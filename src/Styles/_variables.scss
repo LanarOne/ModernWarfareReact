@@ -4,10 +4,10 @@
   --Titles-ff: "Turret Road";
   --header-bgc: linear-gradient(#f2ffe6, #fff);
   --header-color: #336600;
-  --title1-fs: 5rem;
-  --title2-fs: 4rem;
-  --title3-fs: 2rem;
-  --body-fs: 1.8rem;
+  --title1-fs: calc(5rem + 0.6vmin);
+  --title2-fs: calc(4rem + 0.6vmin);
+  --title3-fs: calc(2rem + 0.6vmin);
+  --body-fs: calc(1.8rem + 0.6vmin);
   --body-color: #f2ffe6;
   --orange : #ff6600;
 }
