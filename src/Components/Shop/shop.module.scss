@@ -3,10 +3,11 @@
   margin: 0 auto;
   background-color: var(--header-color);
   display: flex;
+  flex-wrap: wrap;
   & aside {
     width: 20%;
   }
-  & .products {
+  & section {
     width: 80%;
   }
 }
