@@ -3,14 +3,14 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import mc from "./about.module.scss";
 import Stars from "../smallElt/stars/stars";
-import submarine from "../../img/substation2.png";
-import wm2_6 from "../../img/WM2_6.png";
-import spacestation from "../../img/spaceStation2.png";
-import spaceship from "../../img/flyingFortress5.png";
-import ceo from "../../img/CEO.png";
-import cfo from "../../img/CFO.png";
-import pr from "../../img/PR.png";
-import jrceo from "../../img/jrCEO.png";
+import submarine from "../../public/img/substation2.png";
+import wm2_6 from "../../public/img/WM2_6.png";
+import spacestation from "../../public/img/spaceStation2.png";
+import spaceship from "../../public/img/flyingFortress5.png";
+import ceo from "../../public/img/CEO.png";
+import cfo from "../../public/img/CFO.png";
+import pr from "../../public/img/PR.png";
+import jrceo from "../../public/img/jrCEO.png";
 const About = () => {
   return (
     <div className={`${mc.container}`}>

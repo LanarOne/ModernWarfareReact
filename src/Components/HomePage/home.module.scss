@@ -3,7 +3,7 @@
   background-color: var(--header-color);
   & .window {
     width: 50%;
-    background-image: url("../../img/spaceBattle.png");
+    background-image: url("../../public/img/spaceBattle.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
@@ -29,7 +29,7 @@ h2 {
   display: flex;
   & .window {
     width: 50%;
-    background-image: url("../../img/substation.png");
+    background-image: url("../../public/img/substation.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;

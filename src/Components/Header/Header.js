@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import rightWing from "../../img/rightWing.png";
-import leftWing from "../../img/leftWing.png";
+import rightWing from "../../public/img/rightWing.png";
+import leftWing from "../../public/img/leftWing.png";
 import mc from "./header.module.scss";
 import { NavLink } from "react-router-dom";
 

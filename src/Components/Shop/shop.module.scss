@@ -4,10 +4,26 @@
   background-color: var(--header-color);
   display: flex;
   flex-wrap: wrap;
+  & .searchbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
   & aside {
     width: 20%;
   }
-  & section {
+  & .armors,
+  .weapons,
+  .vehicles,
+  .searchResults {
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    & h2 {
+      width: 100%;
+      margin: 2rem;
+    }
   }
 }

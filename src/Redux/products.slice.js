@@ -35,7 +35,7 @@ export const { setProducts, setError, setProductsLoading } =
 export const fetchProducts = () => async (dispatch) => {
   try {
     dispatch(setProductsLoading());
-    const { armors, vehicles, weapons, products } = await getProducts();
+    const { armors, vehicles, weapons } = await getProducts();
     dispatch(setProducts({ armors, vehicles, weapons }));
   } catch (error) {
     dispatch(setError(error.message));

@@ -6,14 +6,14 @@ import IcomoonReact, { iconList } from "icomoon-react";
 import iconSet from "../../Styles/icomoon/selection.json";
 import mc from "./home.module.scss";
 import Stars from "../smallElt/stars/stars";
-import helmet from "../../img/helmet.png";
-import fa142_3 from "../../img/FA142_3.png";
-import wm17_9 from "../../img/WM17_9.png";
-import ca162_4 from "../../img/CA162_4.png";
-import wm1_6 from "../../img/WM1_6.png";
-import ca10_3 from "../../img/CA10_3.png";
-import fa102_6 from "../../img/FA102_6.png";
-import fv24_2 from "../../img/FV24_2.png";
+import helmet from "../../public/img/helmet.png";
+import fa142_3 from "../../public/img/FA142_3.png";
+import wm17_9 from "../../public/img/WM17_9.png";
+import ca162_4 from "../../public/img/CA162_4.png";
+import wm1_6 from "../../public/img/WM1_6.png";
+import ca10_3 from "../../public/img/CA10_3.png";
+import fa102_6 from "../../public/img/FA102_6.png";
+import fv24_2 from "../../public/img/FV24_2.png";
 const Home = () => {
   return (
     <div className={`${mc.container}`}>

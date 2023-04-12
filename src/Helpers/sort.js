@@ -13,7 +13,6 @@ export const getProducts = async () => {
       },
     });
     const data = await promise.json();
-    console.log(data);
     const { data: allProducts } = data;
     const sortedProducts = allProducts.reduce(
       (acc, curr) => {

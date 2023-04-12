@@ -1,6 +1,6 @@
-.submitForm {
+.selectForm {
   margin: 1rem;
-  & .searchInput {
+  & .selectInput {
     width: 20rem;
     height: 3rem;
     border: 2px solid transparent;
@@ -22,7 +22,7 @@
       border: 2px ridge var(--orange);
     }
   }
-  & .submitInput {
+  & .selectSubmit {
     border: 3px ridge var(--orange);
     height: 3rem;
     border-radius: 1.5rem;
