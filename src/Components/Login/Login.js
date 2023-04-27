@@ -7,6 +7,7 @@ import { getPassword } from "../../Redux/form.slice";
 import mc from "./login.module.scss";
 import { NavLink } from "react-router-dom";
 const Login = () => {
+  // get and dispatch data easily
   const { password, email } = useSelector((store) => store.form);
   const dispatch = useDispatch();
 
@@ -14,6 +15,7 @@ const Login = () => {
     dispatch(getPassword(e));
   };
 
+  // the function that handles the submit to log-in
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

@@ -72,3 +72,42 @@
     }
   }
 }
+@media screen and (max-width: 770px){
+ .blocHistory{
+   flex-direction: column;
+   & .historyArt,
+   .blocImg {
+     min-width: 100%;
+   }
+ }
+  .familyMember {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    &:hover {
+      transform: none !important;
+    }
+    & .familyMemberText {
+      display: block !important;
+      position: relative !important;
+    }
+  }
+}
+
+@media screen and (max-width: 450px){
+  .family{
+    & .familyMember {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      &:hover {
+        transform: none !important;
+      }
+      & .familyMemberText {
+        position: relative !important;
+        display: block !important;
+      }
+    }
+  }
+}

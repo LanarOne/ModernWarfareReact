@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import mc from "./selectElt.module.scss";
 
+// The select element I use to sort the `shop` page with a select input
 const SelectElt = ({ onSelect }) => {
   const [selectValue, setSelectValue] = useState("");
   const handleSelect = (e) => {
@@ -15,6 +16,7 @@ const SelectElt = ({ onSelect }) => {
           id="selectType"
           onChange={(e) => {
             setSelectValue(e.target.value);
+            onSelect(e.target.value);
           }}
           value={selectValue}
           className={`${mc.selectInput}`}
@@ -24,7 +26,6 @@ const SelectElt = ({ onSelect }) => {
           <option value="vehicles">Vehicles</option>
           <option value="weapons">Weapons</option>
         </select>
-        <button className={`${mc.selectSubmit}`}>Submit</button>
       </form>
     </div>
   );

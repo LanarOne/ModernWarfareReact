@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getConfirm, getPassword } from "../../../Redux/form.slice";
-import { store } from "../../../Redux/store";
 import mc from "./passwordElt.module.scss";
 
 const PasswordElt = () => {
+  // the password element that dispatch the value of the input
   const dispatch = useDispatch();
   const { password, confirm } = useSelector((store) => store.form);
   const handlePassChange = (e) => {

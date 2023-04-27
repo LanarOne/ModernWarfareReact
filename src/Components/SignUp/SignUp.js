@@ -16,6 +16,8 @@ import {
 import iconSet from "../../Styles/icomoon/selection.json";
 import IcomoonReact from "icomoon-react";
 const SignUp = () => {
+  // signUp element to retrieve data from the form filled by the user and send it to the back-end to be stored in the database
+  // the useSelector hook is used to get the data from the redux store, while the usedispatch sends data to the store
   const {
     email,
     password,
@@ -46,6 +48,9 @@ const SignUp = () => {
   const handleCity = (e) => {
     dispatch(getCity(e));
   };
+
+  // the function that handles the submit of the form to send it to the NodeJS back-end
+  // if the form is correctly filled, the user will be redirected to the homepage
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirm) {
@@ -79,6 +84,7 @@ const SignUp = () => {
       alert("confirmation does not match the password");
     }
   };
+  // all the inputs are monitored, each time there's a change in the input, the data is stored through the useState hook
   return (
     <div className={`${mc.container}`}>
       <Header />

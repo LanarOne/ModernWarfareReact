@@ -2,8 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../public/img/logo.png";
 import mc from "./footer.module.scss";
-import iconSet from "../../Styles/icomoon/selection.json";
-import IcomoonReact from "icomoon-react";
 
 const Footer = () => {
   const token = localStorage.getItem("token");

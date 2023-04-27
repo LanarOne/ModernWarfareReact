@@ -10,18 +10,27 @@ import Card from "../smallElt/card/card";
 import SelectElt from "../FormElts/selectElt/SelectElt";
 
 const Shop = () => {
+  // get and dispatch data easily
   const dispatch = useDispatch();
-  const { armors, vehicles, weapons, loading, error } = useSelector(
-    (state) => state.products
-  );
+  const { armors, vehicles, weapons } = useSelector((state) => state.products);
+
+  // useState hooks for easier data manipulation
   const [searchResults, setSearchResults] = useState([]);
   const [selected, setSelected] = useState("");
+
+  // token to make sure the user's logged in
+  const token = localStorage.getItem("token");
+
   const handleSearch = (results) => {
     setSearchResults(results);
   };
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+  // redirection for the user to log in before accessing the shop
+  if (!token) {
+    window.location.href = "/signin";
+  }
   return (
     <div>
       <Header />
@@ -32,6 +41,7 @@ const Shop = () => {
           <SearchElt onSearch={handleSearch} />
           <SelectElt onSelect={setSelected} />
         </section>
+        {/*different render depending on the select input and the searchbar results*/}
         {searchResults.length >= 1 ? (
           <section className={`${mc.searchResults}`}>
             <h2>Search results</h2>
@@ -82,9 +92,6 @@ const Shop = () => {
             </section>
           </>
         )}
-        <aside>
-          <h2>My shopping cart</h2>
-        </aside>
       </main>
       <Footer />
     </div>

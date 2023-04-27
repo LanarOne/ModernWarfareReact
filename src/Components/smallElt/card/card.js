@@ -56,6 +56,8 @@ import WM20_8 from "../../../public/img/WM20_8.png";
 import WM24_4 from "../../../public/img/WM24_4.png";
 import WM28_5 from "../../../public/img/WM28_5.png";
 import WM28_7 from "../../../public/img/WM28_7.png";
+
+// main component of the `shop` page which help to display the products nicely
 const Card = ({ product }) => {
   let imgSrc = "";
   switch (product.img) {
@@ -227,31 +229,55 @@ const Card = ({ product }) => {
   return (
     <article key={product.id} className={`${mc.card}`}>
       <h3>{product.name}</h3>
-      <img loading="lazy" src={imgSrc} alt="" />
-      <div className="stats">
-        <ul>
-          <li>Type : {product.type}</li>
-          <li>AI assistance : {product.assistance ? `yes` : `none`}</li>
-          <li>
-            Price : {product.price}{" "}
-            <IcomoonReact
-              iconSet={iconSet}
-              color={"#ff6600"}
-              size={20}
-              icon="bitcoin"
-            />
-          </li>
-          {product.flying ? <li>{`flying`}</li> : ``}
-          {product.cockpit ? (
-            <li>{`Room in cockpit : ${product.cockpit}`}</li>
-          ) : (
-            ``
-          )}
-          {product.weapons ? <li>{`Weaponry : ${product.weapons}`}</li> : ``}
-          {product.ammo ? <li>{`Caliber : ${product.ammo}`}</li> : ``}
-          {product.magazine ? <li>{`Magazine : ${product.magazine}`}</li> : ``}
-          {product.range ? <li>{`${product.range}`}</li> : ``}
-        </ul>
+      <div className={`${mc.blocDetail}`}>
+        <img loading="lazy" src={imgSrc} alt={product.alt} />
+        <div className={`${mc.stats}`}>
+          <ul>
+            <li>Type : {product.type}</li>
+            {/*diff render depending on the 'assistance' value*/}
+            <li>AI assistance : {product.assistance ? `yes` : `none`}</li>
+            {/*diff render it's a vehicle or another product*/}
+            {product.weapons ? (
+              <li>
+                Price : {product.price}{" "}
+                <IcomoonReact
+                  iconSet={iconSet}
+                  color={"#ff6600"}
+                  size={20}
+                  icon="bitcoin"
+                />{" "}
+                / unit
+              </li>
+            ) : (
+              <li>
+                Price : {product.price}{" "}
+                <IcomoonReact
+                  iconSet={iconSet}
+                  color={"#ff6600"}
+                  size={20}
+                  icon="bitcoin"
+                />{" "}
+                / 100 units
+              </li>
+            )}
+            {/*those are different renders for different kind of product*/}
+            {product.flying ? <li>{`flying`}</li> : ``}
+            {product.cockpit ? (
+              <li>{`Room in cockpit : ${product.cockpit}`}</li>
+            ) : (
+              ``
+            )}
+            {product.weapons ? <li>{`Weaponry : ${product.weapons}`}</li> : ``}
+            {product.ammo ? <li>{`Caliber : ${product.ammo}`}</li> : ``}
+            {product.magazine ? (
+              <li>{`Magazine : ${product.magazine}`}</li>
+            ) : (
+              ``
+            )}
+            {product.range ? <li>{`${product.range}`}</li> : ``}
+            <li>{product.description}</li>
+          </ul>
+        </div>
       </div>
     </article>
   );

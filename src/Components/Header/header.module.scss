@@ -28,6 +28,61 @@
       background-color: var(--header-color);
       border: 1px solid var(--body-color);
       color: var(--orange);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      & button {
+        width: 50%;
+        border: 1px solid crimson;
+        border-radius: .5rem;
+        color: var(--header-color);
+        background-color: var(--body-color);
+        &:hover {
+          background-color: var(--header-color);
+          color: var(--orange);
+        }
+      }
     }
   }
+}
+@media screen and (max-width: 770px){
+  .container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    & .bloclogo {
+      width: 50%;
+    }
+    & img {
+      margin: 1rem;
+      width: 100%;
+    }
+    & ul {
+      display: block;
+      width: 50%;
+      margin: 0 auto;
+      & li {
+        margin: 2rem auto;
+      }
+    }
+    .displayNone{
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .bloclogo {
+      margin: 0 auto;
+    }
+    & ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
 }

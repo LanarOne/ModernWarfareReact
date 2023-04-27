@@ -5,33 +5,67 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 45%;
   margin: 1rem auto;
   background-color: var(--body-color);
   color: var(--header-color);
-  padding: .5rem;
+  padding: 1rem;
+  & .blocDetail{
+    display: flex;
+    position: relative;
+  }
   & h3 {
     font-size: var(--title3-fs);
     transition: all .7s;
   }
   & img {
-    width: 100%;
+    width: 50%;
     height: 30rem;
     object-fit: cover;
     border-radius: 50%;
     top: 0;
     margin: 0 auto;
     transition: all .7s;
+    transform-origin: center center;
     &:hover {
       transform: scale(1.7);
-      transition: all .7s;
       width: 100%;
+      border-radius: 5%;
       object-fit: contain;
-      border-radius: 0;
+      transition: all .7s;
+      z-index: 1;
+      & + .stats {
+        z-index: 2;
+        color: white;
+        transition: all .7s;
+        float: right;
+        border: 1px dashed var(--orange);
+        width: 100%;
+        padding: 1rem;
+        background-color: var(--header-color);
+      }
+    }
+  }
+  & .stats {
+    padding: .5rem;
+    max-height: 30rem;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .7s;
+    width: 100%;
+    &::-webkit-scrollbar {
+      width: 2px;
     }
   }
   & li {
     margin: 0 auto;
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 770px){
+  .card {
+    width: 100%;
   }
 }

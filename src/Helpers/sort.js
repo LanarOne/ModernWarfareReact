@@ -3,7 +3,7 @@ export const createProductObject = (product) => {
     Object.entries(product).filter(([_, value]) => value !== null)
   );
 };
-
+// function to sort the different types of products
 export const getProducts = async () => {
   const token = localStorage.getItem("token");
   try {
@@ -17,11 +17,11 @@ export const getProducts = async () => {
     const sortedProducts = allProducts.reduce(
       (acc, curr) => {
         const productObj = createProductObject(curr);
-        if (productObj.typeId === 1) {
+        if (productObj.typeId === 3) {
           acc.weapons.push(productObj);
-        } else if (productObj.typeId === 2) {
+        } else if (productObj.typeId === 1) {
           acc.armors.push(productObj);
-        } else if (productObj.typeId === 3) {
+        } else if (productObj.typeId === 2) {
           acc.vehicles.push(productObj);
         }
         return acc;

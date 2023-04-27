@@ -11,19 +11,24 @@
     justify-content: center;
     width: 100%;
   }
-  & aside {
-    width: 20%;
-  }
   & .armors,
   .weapons,
   .vehicles,
   .searchResults {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     & h2 {
       width: 100%;
       margin: 2rem;
     }
+  }
+}
+@media screen and (max-width: 770px) {
+  .armors,
+  .weapons,
+  .vehicles,
+  .searchResults {
+    width: 100%;
   }
 }
