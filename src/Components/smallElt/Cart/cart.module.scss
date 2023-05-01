@@ -1,0 +1,23 @@
+aside {
+  width: 30%;
+  height: 50vh;
+  position: fixed;
+  top: 25rem;
+  right: 0;
+  overflow: scroll;
+  font-size: 1.2rem;
+  padding: .5rem;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+  & button {
+    background-color: var(--body-color);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    border-radius: 50%;
+    &:hover {
+      color: var(--header-bgc);
+      background-color: var(--header-color);
+    }
+  }
+}

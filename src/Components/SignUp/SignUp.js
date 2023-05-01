@@ -49,7 +49,7 @@ const SignUp = () => {
     dispatch(getCity(e));
   };
 
-  // the function that handles the submit of the form to send it to the NodeJS back-end
+  // the function that handles submitting the form to send it to the NodeJS back-end
   // if the form is correctly filled, the user will be redirected to the homepage
   const handleSubmit = async (e) => {
     e.preventDefault();

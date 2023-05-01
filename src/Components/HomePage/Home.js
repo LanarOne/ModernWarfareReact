@@ -17,6 +17,7 @@ import fv24_2 from "../../public/img/FV24_2.png";
 import spacestation from "../../public/img/spaceBattle.png";
 import substation from "../../public/img/substation.png";
 import { useMediaQuery } from "react-responsive";
+import about from "../About/About";
 const Home = () => {
   // constants for media queries
   const isSmallScreen = useMediaQuery({ query: "(max-width: 450px)" });
@@ -410,7 +411,7 @@ const Home = () => {
                     <p>
                       For any private matter the appropriate channel would be
                       through our head of PR whom you can find the contact
-                      details at <a href="about.html">this page</a>
+                      details at <NavLink to={"/about"}>this page</NavLink>
                     </p>
                   </div>
                 </div>

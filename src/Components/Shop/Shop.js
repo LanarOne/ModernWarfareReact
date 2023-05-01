@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../Redux/products.slice";
 import Card from "../smallElt/card/card";
 import SelectElt from "../FormElts/selectElt/SelectElt";
+import Cart from "../smallElt/Cart/Cart";
 
 const Shop = () => {
   // get and dispatch data easily
@@ -93,6 +94,7 @@ const Shop = () => {
           </>
         )}
       </main>
+      <Cart />
       <Footer />
     </div>
   );

@@ -56,6 +56,7 @@ import WM20_8 from "../../../public/img/WM20_8.png";
 import WM24_4 from "../../../public/img/WM24_4.png";
 import WM28_5 from "../../../public/img/WM28_5.png";
 import WM28_7 from "../../../public/img/WM28_7.png";
+import AddToCart from "../addToCartBtn/AddToCart";
 
 // main component of the `shop` page which help to display the products nicely
 const Card = ({ product }) => {
@@ -279,6 +280,7 @@ const Card = ({ product }) => {
           </ul>
         </div>
       </div>
+      <AddToCart product={product} />
     </article>
   );
 };

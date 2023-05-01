@@ -86,6 +86,9 @@
     flex-direction: column;
     &:hover {
       transform: none !important;
+      & .familyMemberText {
+        font-size: var(--body-fs);
+      }
     }
     & .familyMemberText {
       display: block !important;
@@ -98,15 +101,16 @@
   .family{
     & .familyMember {
       min-width: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      //display: flex;
+      //flex-direction: column;
+      //position: relative;
       &:hover {
         transform: none !important;
-      }
-      & .familyMemberText {
-        position: relative !important;
-        display: block !important;
+        & .familyMemberText {
+          position: relative !important;
+          display: block !important;
+          transform: none !important;
+        }
       }
     }
   }

@@ -342,6 +342,8 @@ const About = () => {
                   perished in battle. Technology and a bit of luck brought him
                   back to life and he was the first human being that was partly
                   machine. He is the living example of what our company does.
+                  For any private matter, please{" "}
+                  <a href="mailto:flokidonotcare@example.com">contact him</a>
                 </p>
               </div>
             </article>

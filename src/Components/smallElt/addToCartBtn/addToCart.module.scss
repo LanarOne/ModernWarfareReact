@@ -1,0 +1,13 @@
+.addToCartBtn {
+  background-color: var(--orange);
+  border: 1px solid var(--header-color);
+  font-family: var(--Titles-ff);
+  font-weight: bold;
+  border-radius: 1rem;
+  color: var(--body-color);
+  &:hover {
+    background-color: var(--header-color);
+    color: var(--orange);
+    border: 1px solid var(--orange);
+  }
+}

@@ -26,7 +26,7 @@
     top: 0;
     margin: 0 auto;
     transition: all .7s;
-    transform-origin: center center;
+    transform-origin: center;
     &:hover {
       transform: scale(1.7);
       width: 100%;
@@ -43,16 +43,17 @@
         width: 100%;
         padding: 1rem;
         background-color: var(--header-color);
+        position: absolute;
+        top: -50px;
+        right: -300px;
       }
     }
   }
   & .stats {
     padding: .5rem;
     max-height: 30rem;
-    overflow: auto;
+    overflow: scroll;
     display: flex;
-    align-items: center;
-    justify-content: center;
     transition: all .7s;
     width: 100%;
     &::-webkit-scrollbar {
