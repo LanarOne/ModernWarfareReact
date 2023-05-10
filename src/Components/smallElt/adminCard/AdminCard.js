@@ -1,11 +1,14 @@
-import React from "react";
-import mc from "../card/card.module.scss";
+import React, { useState } from "react";
+import mc from "./adminCard.module.scss";
 import IcomoonReact from "icomoon-react";
 import iconSet from "../../../Styles/icomoon/selection.json";
+import Modale from "../modale/Modale";
 
 const AdminCard = ({ product }) => {
   // the admin version of the display card for the products
   const token = localStorage.getItem("token");
+  const [showModal, setShowModal] = useState(false);
+  const message = `Are you sure you want to erase this product : ${product.name} from the database?`;
 
   // the function that handles when the 'delete' cross is clicked by an admin
   const handleDelete = async () => {
@@ -22,6 +25,7 @@ const AdminCard = ({ product }) => {
       if (!response.ok) {
         return Error({ message: `cannot delete product` });
       }
+      setShowModal(false);
       alert(`product ${product.name} successfully deleted`);
       window.location.reload();
     } catch (err) {
@@ -29,13 +33,21 @@ const AdminCard = ({ product }) => {
     }
   };
 
-  // the function redirects the admin when he clicks the 'update' button
+  const handleModal = () => {
+    if (!showModal) {
+      setShowModal(true);
+    } else {
+      setShowModal(false);
+    }
+  };
+
+  // the function redirects the admin when she or he clicks the 'update' button
   const handleUpdate = () => {
     localStorage.setItem("productId", product.id);
     window.location.href = "/admin/updateproduct";
   };
   return (
-    <article key={product.id} className={`${mc.card}`}>
+    <article key={product.id} className={`${mc.adminCard}`}>
       <h3>{product.name}</h3>
       <div className={`${mc.blocDetail}`}>
         <ul>
@@ -75,11 +87,17 @@ const AdminCard = ({ product }) => {
           {product.ammo ? <li>{`Caliber : ${product.ammo}`}</li> : ``}
           {product.magazine ? <li>{`Magazine : ${product.magazine}`}</li> : ``}
           {product.range ? <li>{`${product.range}`}</li> : ``}
-          <li>{product.description}</li>
         </ul>
       </div>
-      <button onClick={handleDelete}>x</button>
+      <button onClick={handleModal}>x</button>
       <button onClick={handleUpdate}>update</button>
+      {showModal && (
+        <Modale
+          message={message}
+          onConfirm={handleDelete}
+          onCancel={handleModal}
+        />
+      )}
     </article>
   );
 };

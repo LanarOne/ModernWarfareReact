@@ -13,9 +13,10 @@ h1 {
   font-family: var(--Titles-ff);
   color: var(--header-color);
   margin: .2rem;
-  padding-top: 7rem;
+  padding-top: 5rem;
   font-size: var(--title1-fs);
   text-align: center;
+  overflow: hidden;
 }
 
 h2,

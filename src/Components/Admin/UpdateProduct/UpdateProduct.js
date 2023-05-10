@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import mc from "./updateProduct.module.scss";
+import Header from "../../Header/Header";
+import Modale from "../../smallElt/modale/Modale";
+import modale from "../../smallElt/modale/Modale";
 const UpdateProduct = () => {
   const productId = localStorage.getItem("productId");
   const token = localStorage.getItem("token");
@@ -19,6 +22,8 @@ const UpdateProduct = () => {
   const [ammo, setAmmo] = useState("");
   const [magazine, setMagazine] = useState("");
   const [range, setRange] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const message = `Are you sure you want to change this product : ${product.name} in the database?`;
 
   // The function i'm using to retrieve the full data set of a precise product
   const getItemForUpdate = async () => {
@@ -75,6 +80,7 @@ const UpdateProduct = () => {
         }
       );
       if (response.ok) {
+        setShowModal(false);
         alert(`The datas have been correctly updated in the database`);
         window.location.href = "/admin/deleteproduct";
       }
@@ -86,18 +92,28 @@ const UpdateProduct = () => {
     getItemForUpdate();
   }, []);
 
+  const handleModal = () => {
+    if (!showModal) {
+      setShowModal(true);
+    } else {
+      setShowModal(false);
+    }
+  };
+
   // each input goes with a setter to get the data easily
   return (
-    <div>
+    <>
+      <Header />
       <form
         action=""
         onSubmit={(e) => {
           e.preventDefault();
-          handleUpdate();
+          handleModal();
         }}
+        className={`${mc.updateForm}`}
       >
         <div>
-          <label htmlFor="">Name:</label>
+          <label htmlFor="">Name : </label>
           <input
             type="text"
             value={name}
@@ -105,7 +121,7 @@ const UpdateProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="">type</label>
+          <label htmlFor="">Type : </label>
           <input
             type="text"
             value={type}
@@ -113,15 +129,17 @@ const UpdateProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="">assistance</label>
-          <input
-            type="text"
-            value={assistance}
+          <label htmlFor="">Assistance : </label>
+          <select
             onChange={(e) => setAssistance(e.target.value)}
-          />
+            value={assistance}
+          >
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
         </div>
         <div>
-          <label htmlFor="">price</label>
+          <label htmlFor="">Price : </label>
           <input
             type="text"
             value={price}
@@ -129,7 +147,7 @@ const UpdateProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="">img</label>
+          <label htmlFor="">Img : </label>
           <input
             type="text"
             value={img}
@@ -139,74 +157,110 @@ const UpdateProduct = () => {
           />
         </div>
         <div>
-          <label htmlFor="">alt</label>
-          <input
-            type="text"
+          <label htmlFor="">Alt : </label>
+          <textarea
+            cols="30"
+            rows="7"
             value={alt}
             onChange={(e) => setAlt(e.target.value)}
-          />
+          ></textarea>
         </div>
         <div>
-          <label htmlFor="">description</label>
-          <input
-            type="text"
+          <label htmlFor="">Description : </label>
+          <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-          />
+            cols="30"
+            rows="7"
+          ></textarea>
         </div>
-        <input
-          type="text"
-          value={flying}
-          onChange={(e) => setFlying(e.target.value)}
-        />
+        {ammo ? (
+          ``
+        ) : (
+          <div>
+            <label htmlFor="">Flying : </label>
+            <select value={flying} onChange={(e) => setFlying(e.target.value)}>
+              <option value="true">true</option>
+              <option value="false">false</option>
+            </select>
+          </div>
+        )}
+
         {cockpit ? (
-          <input
-            type="text"
-            value={cockpit}
-            onChange={(e) => setCockpit(e.target.value)}
-          />
+          <div>
+            <label htmlFor="">Room in cockpit : </label>
+            <input
+              type="number"
+              value={cockpit}
+              onChange={(e) => setCockpit(e.target.value)}
+            />
+          </div>
         ) : (
           ""
         )}
         {weapons ? (
-          <input
-            type="text"
-            value={weapons}
-            onChange={(e) => setWeapons(e.target.value)}
-          />
+          <div>
+            <label htmlFor="">Weaponry : </label>
+            <select
+              value={weapons}
+              onChange={(e) => setWeapons(e.target.value)}
+            >
+              <option value="light">light</option>
+              <option value="heavy">heavy</option>
+              <option value="solid">solid</option>
+            </select>
+          </div>
         ) : (
           ""
         )}
         {ammo ? (
-          <input
-            type="text"
-            value={ammo}
-            onChange={(e) => setAmmo(e.target.value)}
-          />
+          <div>
+            <label htmlFor="">Ammunition : </label>
+            <input
+              type="text"
+              value={ammo}
+              onChange={(e) => setAmmo(e.target.value)}
+            />
+          </div>
         ) : (
           ""
         )}
         {magazine ? (
-          <input
-            type="text"
-            value={magazine}
-            onChange={(e) => setMagazine(e.target.value)}
-          />
+          <div>
+            <label htmlFor="">Magazine : </label>
+            <input
+              type="number"
+              value={magazine}
+              onChange={(e) => setMagazine(e.target.value)}
+            />
+          </div>
         ) : (
           ""
         )}
         {range ? (
-          <input
-            type="text"
-            value={range}
-            onChange={(e) => setRange(e.target.value)}
-          />
+          <div>
+            <label htmlFor="">Range : </label>
+            <select value={range} onChange={(e) => setRange(e.target.value)}>
+              <option value="long range">long range</option>
+              <option value="short range">short range</option>
+              <option value="very long range">very long range</option>
+            </select>
+          </div>
         ) : (
           ""
         )}
         <button>submit changes</button>
       </form>
-    </div>
+      {showModal ? (
+        <Modale
+          message={message}
+          onConfirm={handleUpdate}
+          onCancel={handleModal}
+        />
+      ) : (
+        ``
+      )}
+    </>
   );
 };
 

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Card from "../../smallElt/card/card";
 import Header from "../../Header/Header";
 import { fetchProducts } from "../../../Redux/products.slice";
 import AdminCard from "../../smallElt/adminCard/AdminCard";
+import mc from "./deleteProduct.module.scss";
+import Stars from "../../smallElt/stars/stars";
+import SearchElt from "../../FormElts/searchElt/SearchElt";
+import SelectElt from "../../FormElts/selectElt/SelectElt";
+import Footer from "../../Footer/Footer";
 
 const DeleteProduct = () => {
   // component only for admin use
@@ -11,6 +15,8 @@ const DeleteProduct = () => {
   const { armors, vehicles, weapons, loading, error } = useSelector(
     (state) => state.products
   );
+  const [searchResults, setSearchResults] = useState([]);
+  const [selected, setSelected] = useState("");
   const token = localStorage.getItem("token");
 
   const dispatch = useDispatch();
@@ -29,6 +35,9 @@ const DeleteProduct = () => {
       return Error(err.message);
     }
   };
+  const handleSearch = (results) => {
+    setSearchResults(results);
+  };
   // The useEffect to run the getUser function once and dispatch the fetchProduct Function
   useEffect(() => {
     getUser();
@@ -40,26 +49,65 @@ const DeleteProduct = () => {
   return (
     <div>
       <Header />
-      <main>
-        <section>
-          <h2>armors</h2>
-          {armors.map((armor) => {
-            return <AdminCard product={armor} />;
-          })}
+      <main className={`${mc.containerAdmin}`}>
+        <section className={`${mc.searchbarAdmin}`}>
+          <h2>Our products</h2>
+          <SearchElt onSearch={handleSearch} />
+          <SelectElt onSelect={setSelected} />
         </section>
-        <section>
-          <h2>vehicles</h2>
-          {vehicles.map((vehicle) => {
-            return <AdminCard product={vehicle} />;
-          })}
-        </section>
-        <section>
-          <h2>weapons</h2>
-          {weapons.map((weapon) => {
-            return <AdminCard product={weapon} />;
-          })}
-        </section>
+        {/*different render depending on the select input and the searchbar results*/}
+        {searchResults.length >= 1 ? (
+          <section className={`${mc.searchResultsAdmin}`}>
+            <h2>Search results</h2>
+            {searchResults.map((product) => {
+              return <AdminCard product={product} key={product.id} />;
+            })}
+          </section>
+        ) : selected === "armors" ? (
+          <section className={`${mc.armorsAdmin}`}>
+            <h2>Armors</h2>
+            {armors.map((armor) => {
+              return <AdminCard product={armor} key={armor.id} />;
+            })}
+          </section>
+        ) : selected === "weapons" ? (
+          <section className={`${mc.weaponsAdmin}`}>
+            <h2>Weapons</h2>
+            {weapons.map((weapon) => {
+              return <AdminCard product={weapon} key={weapon.id} />;
+            })}
+          </section>
+        ) : selected === "vehicles" ? (
+          <section className={`${mc.vehiclesAdmin}`}>
+            <h2>Combat Vehicles</h2>
+            {vehicles.map((vehicle) => {
+              return <AdminCard product={vehicle} key={vehicle.id} />;
+            })}
+          </section>
+        ) : (
+          <>
+            <section className={`${mc.armorsAdmin}`}>
+              <h2>Armors</h2>
+              {armors.map((armor) => {
+                return <AdminCard product={armor} key={armor.id} />;
+              })}
+            </section>
+            <section className={`${mc.weaponsAdmin}`}>
+              <h2>Weapons</h2>
+              {weapons.map((weapon) => {
+                return <AdminCard product={weapon} key={weapon.id} />;
+              })}
+            </section>
+            <section className={`${mc.vehiclesAdmin}`}>
+              <h2>Combat Vehicles</h2>
+              {vehicles.map((vehicle) => {
+                return <AdminCard product={vehicle} key={vehicle.id} />;
+              })}
+            </section>
+          </>
+        )}
       </main>
+      <Footer />
     </div>
   );
 };

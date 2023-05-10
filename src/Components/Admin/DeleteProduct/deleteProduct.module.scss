@@ -1,0 +1,17 @@
+.containerAdmin {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #336600;
+  & .searchResultsAdmin,
+  .searchbarAdmin,
+  .armorsAdmin,
+  .vehiclesAdmin,
+  .weaponsAdmin {
+    & h2 {
+      width: 100%;
+    }
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
