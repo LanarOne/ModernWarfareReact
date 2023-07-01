@@ -100,7 +100,10 @@ const Header = () => {
                 </NavLink>
               ) : (
                 <div className={`${mc.custom}`}>
-                  <p>Bienvenue {user.username}</p>
+                  <li>
+                    Bienvenue{" "}
+                    <NavLink to={"/updateaccount"}>{user.username}</NavLink>
+                  </li>
                   <button onClick={handleLogOut}>Log out</button>
                 </div>
               )}

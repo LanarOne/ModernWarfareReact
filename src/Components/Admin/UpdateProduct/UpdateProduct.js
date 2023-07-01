@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import mc from "./updateProduct.module.scss";
 import Header from "../../Header/Header";
 import Modale from "../../smallElt/modale/Modale";
-import modale from "../../smallElt/modale/Modale";
 const UpdateProduct = () => {
   const productId = localStorage.getItem("productId");
   const token = localStorage.getItem("token");
@@ -25,7 +24,7 @@ const UpdateProduct = () => {
   const [showModal, setShowModal] = useState(false);
   const message = `Are you sure you want to change this product : ${product.name} in the database?`;
 
-  // The function i'm using to retrieve the full data set of a precise product
+  // The function I'm using to retrieve the full data set of a precise product
   const getItemForUpdate = async () => {
     const response = await fetch(
       `http://localhost:4069/products/readone/${productId}`,
@@ -51,7 +50,7 @@ const UpdateProduct = () => {
     setMagazine(data.data.magazine);
     setRange(data.data.range);
   };
-  // function to handle the submit of the update button and the `put` method
+  // function to handle submit of the update button and the `put` method
   const handleUpdate = async () => {
     try {
       const response = await fetch(
